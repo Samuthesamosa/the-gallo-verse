@@ -143,6 +143,11 @@ rock_x_anthony = 600
 rock_y_anthony = random.randrange(20, 460)
 radius_fire = 1
 
+#---------------------
+samuel_hat_radius = 1
+
+#----------------------
+
 colour_lucas = (0, 0, 255)
 
 car_lucas_x = 50
@@ -565,6 +570,56 @@ while running:
     height = 480
     pygame.draw.rect(screen, (0, 0, 255), (x, y, width, height))
     initial_bomb_x = x -  1900
+
+    #-------------------
+    x = 640 * 5
+    y = 480 * 2
+    width = 640
+    height = 480
+    # DRAWING
+    pygame.draw.rect(screen, (0, 76, 153), (x, y, width, height))  
+    for star in range(100): #snowflakes
+        samstar_x = random.randrange(1, 640)
+        samstar_y = random.randrange(1, 480)
+        pygame.draw.circle(screen, (225, 225, 225), (x + samstar_x, y + samstar_y), 1)
+    
+    pygame.draw.circle(screen, (255,255,255), (300 + x, 280 + y), 75) #ball1
+    pygame.draw.circle(screen, (255,255,255), (300 + x, 200 + y), 50) #ball2
+    pygame.draw.circle(screen, (255,255,255), (300 + x, 150 + y), 40) #ball3
+    pygame.draw.circle(screen, (0, 0, 0), (290 + x, 140 + y), 5) #eye1
+    pygame.draw.circle(screen, (0, 0, 0), (320 + x, 140 + y), 5) #eye2
+    pygame.draw.circle(screen, (0, 0, 0), (300 + x, 200 + y), 5) #button1
+    pygame.draw.circle(screen, (0, 0, 0), (300 + x, 300 + y), 5) #button2
+    pygame.draw.circle(screen, (0, 0, 0), (300 + x, 250 + y), 5) #button3
+    pygame.draw.polygon(screen, (255, 128, 0), [(300 + x, 150 + y), #nose
+                                                (320 + x, 150 + y), 
+                                                (320 + x, 160 + y)])
+    pygame.draw.polygon(screen, (139, 0, 0), [(275 + x, 115 + y), #top hat
+                                              (320 + x, 115 + y), 
+                                              (320 + x, 70 + y), 
+                                              (275 + x, 70 + y)])
+    pygame.draw.polygon(screen, (0, 0, 0), [(260 + x, 115 + y), #bottom hat
+                                            (337 + x, 115 + y), 
+                                            (337 + x, 105 + y), 
+                                            (260 + x, 105 + y)])
+    pygame.draw.polygon(screen, (0, 0, 0), [(295 + x, 180 + y), #middle bow
+                                              (310 + x, 180 + y), 
+                                              (310 + x, 170 + y), 
+                                              (295 + x, 170 + y)])
+    pygame.draw.polygon(screen, (0, 0, 0), [(275 + x, 185 + y), #left bow
+                                              (275 + x, 165 + y), 
+                                              (312 + x, 175 + y)])    
+    pygame.draw.polygon(screen, (0, 0, 0), [(290 + x, 175 + y), #right bow
+                                              (320 + x, 165 + y), 
+                                              (320 + x, 185 + y)])
+    pygame.draw.circle(screen, (0, 255, 0), (285 + x, 90 + y), samuel_hat_radius) #lights on hat
+    pygame.draw.circle(screen, (0, 255, 0), (295 + x, 75 + y), samuel_hat_radius) #lights on hat
+    pygame.draw.circle(screen, (0, 255, 0), (310 + x, 95 + y), samuel_hat_radius) #lights on hat
+    if samuel_hat_radius > 5:
+        samuel_hat_radius = 1
+    samuel_hat_radius += 1
+
+    #----------------------
     
     if not car_go_back:
         car_lucas_x += 4
