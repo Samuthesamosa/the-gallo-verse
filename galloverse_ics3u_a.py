@@ -706,9 +706,9 @@ while running:
     asteroid_2_y_p += 1.5
     ufo_body_x_p += 1
     line1_x_p += 1
-    
-    x = 1280
-    y = 960
+
+    x = 640 * 2
+    y = 480 * 2
     width = 640
     height = 480
     circle_list_p = []
@@ -719,28 +719,28 @@ while running:
             'radius_p': random.randint(1,4)
         }
         circle_list_p.append(circle_p)
-    ufo_body_y_p = int((HEIGHT - 200) / 2 + math.sin(ufo_body_x_p / 100) * 100)
-    line1_y_p = int((HEIGHT - 200) / 2 + math.sin(line1_x_p / 100) * 100)
+    ufo_body_y_p = int((height - 200) / 2 + math.sin(ufo_body_x_p / 100) * 100)
+    line1_y_p = int((height - 200) / 2 + math.sin(line1_x_p / 100) * 100)
     flame_variation_1_p = random.randint(-5, 5)  
-    if asteroid_y_p - 50 >= HEIGHT or asteroid_x_p - 50 >= WIDTH:
-      asteroid_x_p = x
-      asteroid_y_p = y
-      smallhole_1_x_p = x + 20
-      smallhole_1_y_p = y + 20
-      smallhole_2_x_p = x - 20
-      smallhole_2_y_p = y - 10
-      smallhole_3_x_p = x + 20
-      smallhole_3_y_p = y - 20
-      smallhole_4_x_p = x - 5
-      smallhole_4_y_p = y + 30
-    if asteroid_2_y_p >= HEIGHT or asteroid_2_x_p >= WIDTH:
-      asteroid_2_x_p = x
-      asteroid_2_y_p = y 
-    if ufo_body_y_p >= HEIGHT or ufo_body_x_p >= WIDTH:
-      ufo_body_x_p = x 
-      ufo_body_y_p = y
-      line1_x_p = x
-      line1_y_p = y
+    if asteroid_y_p - 50 >= height or asteroid_x_p - 50 >= width:
+      asteroid_x_p = 0
+      asteroid_y_p = 0
+      smallhole_1_x_p = asteroid_x_p + 20
+      smallhole_1_y_p = asteroid_y_p + 20
+      smallhole_2_x_p = asteroid_x_p - 20
+      smallhole_2_y_p = asteroid_y_p - 10
+      smallhole_3_x_p = asteroid_x_p + 20
+      smallhole_3_y_p = asteroid_y_p - 20
+      smallhole_4_x_p = asteroid_x_p - 5
+      smallhole_4_y_p = asteroid_y_p + 30
+    if asteroid_2_y_p >= height or asteroid_2_x_p >= width:
+      asteroid_2_x_p = 0
+      asteroid_2_y_p = 0
+    if ufo_body_y_p >= height or ufo_body_x_p >= width:
+      ufo_body_x_p = 0
+      ufo_body_y_p = 0
+      line1_x_p = 0
+      line1_y_p = 0
     pygame.draw.rect(screen, (20, 20, 20), (x, y, width, height))
 # STARS
     for circle_p in circle_list_p:  
